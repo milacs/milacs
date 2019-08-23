@@ -1,0 +1,107 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Web</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="0"
+                  id="webresponsivetutorial"
+                  title="Web"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Setup" duration="5">
+        
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="HTML" duration="0">
+        <h2 is-upgraded>Self-closing tabs</h2>
+<p>Nem todas as tags em HTML são self-closing, ou seja, podem ser fechadas com <code>/&gt;</code> (barra seguida de sinal de maior).<br>Problema: Quando uma das tags que vêm em pares é fechada com a barra (ex: <code>&lt;div/&gt;</code> em vez de <code>&lt;div&gt;&lt;/div&gt;</code>), o navegador tenta corrigir o erro adicionando a tag de fechamento. Quando uma tag self-closing é fechada com uma tag (<code>&lt;img&gt;&lt;/img&gt;</code> em vez de <code>&lt;img/&gt;</code> )de fechamento, o navegador pode duplicar o elemento.<br>Solução: sempre feche as tags conforme a especificação do HTML.<br><a href="https://dev.w3.org/html5/html-author/" target="_blank">W3 HTML5 Reference</a></p>
+<h2 is-upgraded>Mostrando imagens</h2>
+<p>Quando usar <code>&lt;img/&gt;</code> para conter uma imagem ou usá-la como background image de um outro elemento, como uma div? Além de algumas diferenças de implementação como src em <code>&lt;img src=&#34;&#34;/&gt;</code>   ou url em ```background-image: url()</p>
+<ul>
+<li><code>&lt;img/&gt;</code>, há várias diferenças de comportamento:</li>
+<li><code>&lt;img/&gt;</code> permite a sobreposição de imagens</li>
+<li><code>&lt;img/&gt;</code> permite animações mais rápidas</li>
+<li><code>&lt;img/&gt;</code> é parte do conteúdo, então a imagem é incluída ao imprimir a página</li>
+<li><code>&lt;img/&gt;</code> com o atributo alt melhora a acessibilidade</li>
+<li><code>background-image</code> não é parte do conteúdo e não aparece em impressões</li>
+<li><code>background-image</code> pode exibir somente uma parte da imagem</li>
+<li><code>background-image</code> pode ter tempos de download mais rápidos</li>
+<li><code>background-image</code> pode tornar a centralização vertical da imagem mais fácil que com <code>&lt;img/&gt;</code> (sem flexbox).</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="CSS" duration="0">
+        <h2 is-upgraded>Unidades de fontes</h2>
+<p>Há várias unidades que podem ser usadas para definir o tamanho de fontes, cada uma com suas vantagens e desvantagens.<br><code>px</code> e <code>pt</code> (tradicionalmente usada na imprensa) são unidades absolutas, ou seja, não variam de acordo com os containers.<br><code>em</code> e <code>%</code> são unidades escaláveis, ou seja, são baseadas nas definições de seus containers. Um <code>em</code> equivale ao tamanho da fonte do container. <code>100%</code> equivale ao tamanho da fonte definida no container. A diferença está na forma como elas escalam. Quando falamos em responsividade, <code>%</code> escala de uma maneira mais linear que <code>em</code>. Na prática definindo-se o tamanho no body com <code>%</code> e escalando-o com em parece alcançar os melhores resultados.<br><code>vw</code> e <code>vh</code> são unidades escaláveis, mas variam o tamanho da tela, o que produz tamanhos de fontes não muito legíveis.</p>
+<p><a href="https://kyleschaeffer.com/css-font-size-em-vs-px-vs-pt-vs-percent" target="_blank">CSS Font-Size: em vs. px vs. pt vs. percent</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="SASS e boas práticas" duration="0">
+        <p>Syntactically Awesome Style Sheets (SASS) propõe exatamente o que o nome sugere: uma forma de escrever CSS que reflita a estrutura do código HTML, que seja mais legível e facilite a transição entre hierarquia da linguagem de markup e os estilos CSS.<br>Dessa forma, há algumas boas práticas em CSS que funcionam muito bem com a sintaxe de SASS.</p>
+<h2 is-upgraded>Aninhamento</h2>
+<p>Um exemplo bem frequente envolve a nomenclatura de classes. Um bom nome para uma classe deve refletir bem o elemento que ela representa, mas não precisa ser tão específica de forma a identificar o elemento unicamente, como um id. Usando seletores mais complexos e baseados em contexto pode tornar o código mais bem estruturado e mais fácil de ler.</p>
+<p>Em vez de usar<br><code>&lt;div class=&#34;container&#34;&gt;&lt;span class=&#34;container-item&#34;&gt;&lt;/span&gt;&lt;/container&gt;</code></p>
+<p><code>.container-item { color: blue; }</code></p>
+<p>Podemos usar<br><code>&lt;div class=&#34;container&#34;&gt;&lt;span class=&#34;item&#34;&gt;&lt;/span&gt;&lt;/container&gt;</code></p>
+<p><code>.container .item { color: blue; }</code><br>ou<br><code>.container { .item { color: blue } };</code></p>
+<p>Nesse exemplo pequeno talvez não faça muita diferença, mas quando temos vários níveis na árvore de elementos, o código dos estilos passa a ficar fragmentado.</p>
+<h2 is-upgraded>Variáveis</h2>
+<p>SASS também oferece, entre outras funcionalidades, variáveis que podem assumir quaisquer valores. Tais variáveis permitem, por exemplo, que uma cor seja utilizada ao longo de todo o código, podendo facilmente ser modificada.</p>
+<p><code>$padding: 56px;</code></p>
+<p><code>body { padding: $padding; }</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="AngularJS Material Design Layout" duration="0">
+        <p>Layout é um componente do AngularJS Material Design que implementa os recursos de CSS flexbox por meio de diretivas do AngularJS que são convertidas para classes CSS. É um sistema unidimensional (ou horizontal, ou vertical) que tem como objetivo facilitar o alinhamento e a alocação de espaço para itens de tamanho variável do layout.</p>
+<p>Para utilizá-lo, há duas opções de layout: <code>layout=&#34;column&#34;</code> ou <code>layout=&#34;row&#34;</code>. Essa diretiva/atributo define a orientação da dimensão na qual os itens serão dinamicamente alinhados.<br>Em conjunto com <code>layout</code>, outros atributos podem ser utilizados, como <code>layout-align</code> e <code>layout-wrap</code>. Ambos são dependentes de layout e não surtem efeitos se utilizados de forma avulsa.</p>
+<p><code>layout-align</code> define o alinhamento e a alocação de espaço por meio de dois parâmetros: o primeiro no sentido da dimensão definida em layout e o segundo no sentido ortogonal.<br>Por exemplo, a combinação <code>layout=&#34;row&#34;</code> e <code>layout-align=&#34;start center&#34;</code> vai alinhar alocar o espaço mínimo para os filhos do container e alinhá-los ao início do container de acordo com a dimensão, no caso para a esquerda, ao mesmo tempo que os alinha no centro da outra dimensão, ou seja, alinha-os verticalmente no centro do container.</p>
+<p><code>layout-wrap</code> quebra o fluxo em várias linhas ou colunas, mas as regras ainda são unidimensionais.<br>Outro atributo importante que pode ser aplicado aos filhos do container é <code>flex</code>. O que ele faz é definir um tamanho máximo do item de acordo com a dimensão. Isto é, <code>max-width</code> caso a dimensão seja row e <code>max-height</code> caso seja column. Este atributo não surte efeito quando usado individualmente, pois os seletores CSS, que são pré definidos no componente, não abrangem as classes <code>flex</code> que não estejam subjugadas a <code>layout-column</code> ou <code>layout-row</code>.</p>
+<p><a href="https://material.angularjs.org/latest/layout/introduction" target="_blank">AngularJS Material Layout Introduction</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Responsividade" duration="0">
+        <h2 is-upgraded>Float</h2>
+<h2 is-upgraded>Flexbox</h2>
+<h2 is-upgraded>CSS Grid</h2>
+<h2 is-upgraded>@media queries</h2>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>

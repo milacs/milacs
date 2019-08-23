@@ -1,0 +1,22 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2019-07-29T17:19:58-03:00",
+  "id": "webresponsivetutorial",
+  "duration": 5,
+  "title": "Web",
+  "summary": "Making a website responsive",
+  "source": "/Users/milacs/Documents/web.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": null,
+  "tags": [
+    "js sass html"
+  ],
+  "ga": "0",
+  "url": "webresponsivetutorial"
+}
