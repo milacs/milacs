@@ -80,17 +80,32 @@
       <google-codelab-step label="AngularJS Material Design Layout" duration="0">
         <p>Layout é um componente do AngularJS Material Design que implementa os recursos de CSS flexbox por meio de diretivas do AngularJS que são convertidas para classes CSS. É um sistema unidimensional (ou horizontal, ou vertical) que tem como objetivo facilitar o alinhamento e a alocação de espaço para itens de tamanho variável do layout.</p>
 <p>Para utilizá-lo, há duas opções de layout: <code>layout=&#34;column&#34;</code> ou <code>layout=&#34;row&#34;</code>. Essa diretiva/atributo define a orientação da dimensão na qual os itens serão dinamicamente alinhados.<br>Em conjunto com <code>layout</code>, outros atributos podem ser utilizados, como <code>layout-align</code> e <code>layout-wrap</code>. Ambos são dependentes de layout e não surtem efeitos se utilizados de forma avulsa.</p>
-<p><code>layout-align</code> define o alinhamento e a alocação de espaço por meio de dois parâmetros: o primeiro no sentido da dimensão definida em layout e o segundo no sentido ortogonal.<br>Por exemplo, a combinação <code>layout=&#34;row&#34;</code> e <code>layout-align=&#34;start center&#34;</code> vai alinhar alocar o espaço mínimo para os filhos do container e alinhá-los ao início do container de acordo com a dimensão, no caso para a esquerda, ao mesmo tempo que os alinha no centro da outra dimensão, ou seja, alinha-os verticalmente no centro do container.</p>
-<p><code>layout-wrap</code> quebra o fluxo em várias linhas ou colunas, mas as regras ainda são unidimensionais.<br>Outro atributo importante que pode ser aplicado aos filhos do container é <code>flex</code>. O que ele faz é definir um tamanho máximo do item de acordo com a dimensão. Isto é, <code>max-width</code> caso a dimensão seja row e <code>max-height</code> caso seja column. Este atributo não surte efeito quando usado individualmente, pois os seletores CSS, que são pré definidos no componente, não abrangem as classes <code>flex</code> que não estejam subjugadas a <code>layout-column</code> ou <code>layout-row</code>.</p>
+<ul>
+<li><code>layout-align</code> define o alinhamento e a alocação de espaço por meio de dois parâmetros: o primeiro no sentido da dimensão definida em layout e o segundo no sentido ortogonal.<br>Por exemplo, a combinação <code>layout=&#34;row&#34;</code> e <code>layout-align=&#34;start center&#34;</code> vai alinhar alocar o espaço mínimo para os filhos do container e alinhá-los ao início do container de acordo com a dimensão, no caso para a esquerda, ao mesmo tempo que os alinha no centro da outra dimensão, ou seja, alinha-os verticalmente no centro do container.</li>
+<li><code>layout-wrap</code> quebra o fluxo em várias linhas ou colunas, mas as regras ainda são unidimensionais.<br>Outro atributo importante que pode ser aplicado aos filhos do container é <code>flex</code>. O que ele faz é definir um tamanho máximo do item de acordo com a dimensão. Isto é, <code>max-width</code> caso a dimensão seja <em>row</em> e <code>max-height</code> caso seja <em>column</em>. Este atributo não surte efeito quando usado individualmente, pois os seletores CSS, que são pré definidos no componente, não abrangem as classes <code>flex</code> que não estejam subjugadas a <code>layout-column</code> ou <code>layout-row</code>.</li>
+</ul>
 <p><a href="https://material.angularjs.org/latest/layout/introduction" target="_blank">AngularJS Material Layout Introduction</a></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Responsividade" duration="0">
-        <h2 is-upgraded>Float</h2>
+        <p><a href="https://www.sitepoint.com/css-layouts-floats-flexbox-grid/" target="_blank">Progressively Enhanced CSS Layouts: Floats to Flexbox &amp; Grid</a></p>
+<h2 is-upgraded>Float</h2>
+<p>A funcionalidade mais antiga que permite implementações responsivas, suportadas por versões mais antigas dos browsers. Com ela, é possível alinhar elementos horizontalmente ao longo de um <em>block element</em>. Combinando-a com <code>margin</code>, <code>vertical-align</code> entre outras propriedades, é possível alcançar um layout responsivo, mas não sem muito trabalho.<br>No entanto, para implementações modernas, é melhor reservar <code>float</code> para implementações pontuais e fornecer suporte a navegadores antigos.</p>
 <h2 is-upgraded>Flexbox</h2>
+<p>Flexbox é um conjunto de ferramentas mais recente que é capaz de alocar espaço e alinhar elementos unidimensionalmente, seja numa linha ou numa coluna, podendo ser combinado para construir um <em>grid</em> e rearranjar o layout.<br>Algumas vantagens do Flexbox sobre o Float:</p>
+<ul>
+<li>Alinhamento vertical simples</li>
+<li>Equalização da altura de itens num container</li>
+<li>Alocação de espaço e redimensionamento dos itens automáticos</li>
+<li>Independência de ordem no código fonte: é possível definir a ordem dos itens com a propriedade order</li>
+</ul>
+<p>A começar, basta definir <code>display: flex</code>. Isso diz para o navegador usar as propriedades de flexbox.</p>
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">A Complete Guide to Flexbox</a></p>
 <h2 is-upgraded>CSS Grid</h2>
+<p>Grid é um sistema bidimensional de posicionamento, alinhamento e alocação de espaço de layout. Com ele, é possível definir áreas na tela, quais elementos as ocuparão, tamanhos mínimos, máximos, espaços entre as áreas e várias outras medidas em ambas as direções (linhas e colunas). Para começar, basta definir <code>display: grid</code>. Depois disso, definimos o tamanho das linhas e colunas usando <code>grid-template-rows</code> e <code>grid-template-columns</code>. Para cada elemento da <em>grid</em>, definem-se <code>grid-row</code> e <code>grid-column</code>, que definem onde ele começa e acaba, ou quanto de espaço deve ocupar. A ordem dos elementos no arquivo não importa e pode ser alterada com <code>order</code>.<br>Também é possível definir o <em>gap</em> vertical e horizontal entre as células usango</p>
+<p><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid</a></p>
 <h2 is-upgraded>@media queries</h2>
 
 
