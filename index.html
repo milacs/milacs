@@ -28,12 +28,18 @@
                   feedback-link="">
     
       <google-codelab-step label="Setup" duration="5">
-        
+        <p>For these excercises you&#39;re going to need a web browser (up-to-date Google Chrome recommended. You also need to install SASS. Check out their instructions page.<br>Para realizar esses exercícios, você precisa de :</p>
+<ul>
+<li>um navegador web (Google Chrome atualizado é recomendado)</li>
+<li>installar o SASS <a href="https://sass-lang.com/install" target="_blank">Siga as instruções na página de instalação do SASS</a></li>
+</ul>
+
 
       </google-codelab-step>
     
       <google-codelab-step label="HTML" duration="0">
-        <h2 is-upgraded>Self-closing tabs</h2>
+        <p>Vamos iniciar com a discussão de algumas dúvidas e erros frequentes nos projetos.</p>
+<h2 is-upgraded>Self-closing tabs</h2>
 <p>Nem todas as tags em HTML são self-closing, ou seja, podem ser fechadas com <code>/&gt;</code> (barra seguida de sinal de maior).<br>Problema: Quando uma das tags que vêm em pares é fechada com a barra (ex: <code>&lt;div/&gt;</code> em vez de <code>&lt;div&gt;&lt;/div&gt;</code>), o navegador tenta corrigir o erro adicionando a tag de fechamento. Quando uma tag self-closing é fechada com uma tag (<code>&lt;img&gt;&lt;/img&gt;</code> em vez de <code>&lt;img/&gt;</code> )de fechamento, o navegador pode duplicar o elemento.<br>Solução: sempre feche as tags conforme a especificação do HTML.<br><a href="https://dev.w3.org/html5/html-author/" target="_blank">W3 HTML5 Reference</a></p>
 <h2 is-upgraded>Mostrando imagens</h2>
 <p>Quando usar <code>&lt;img/&gt;</code> para conter uma imagem ou usá-la como background image de um outro elemento, como uma div? Além de algumas diferenças de implementação como src em <code>&lt;img src=&#34;&#34;/&gt;</code>   ou url em ```background-image: url()</p>
@@ -73,6 +79,13 @@
 <p>SASS também oferece, entre outras funcionalidades, variáveis que podem assumir quaisquer valores. Tais variáveis permitem, por exemplo, que uma cor seja utilizada ao longo de todo o código, podendo facilmente ser modificada.</p>
 <p><code>$padding: 56px;</code></p>
 <p><code>body { padding: $padding; }</code></p>
+<h2 is-upgraded>Mixins</h2>
+<p>Mixins são funções especializadas que permitem gerar código reusável que seria repetitivo escrever em CSS puro. Alguns exemplos são:</p>
+<ul>
+<li>Escrever a mesma propriedade CSS para funcionar com navegadores que utilizam sintaxes diferentes;</li>
+<li>Escrever regras atômicas com variação em um determinado intervalo (ex: <code>with-10</code>, <code>width-20</code> etc).</li>
+</ul>
+<p><a href="https://sass-lang.com/guide" target="_blank">Sass Basics</a></p>
 
 
       </google-codelab-step>
@@ -92,7 +105,7 @@
       <google-codelab-step label="Responsividade" duration="0">
         <p><a href="https://www.sitepoint.com/css-layouts-floats-flexbox-grid/" target="_blank">Progressively Enhanced CSS Layouts: Floats to Flexbox &amp; Grid</a></p>
 <h2 is-upgraded>Float</h2>
-<p>A funcionalidade mais antiga que permite implementações responsivas, suportadas por versões mais antigas dos browsers. Com ela, é possível alinhar elementos horizontalmente ao longo de um <em>block element</em>. Combinando-a com <code>margin</code>, <code>vertical-align</code> entre outras propriedades, é possível alcançar um layout responsivo, mas não sem muito trabalho.<br>No entanto, para implementações modernas, é melhor reservar <code>float</code> para implementações pontuais e fornecer suporte a navegadores antigos.</p>
+<p>A funcionalidade mais antiga que permite implementações responsivas, suportadas por versões mais antigas dos navegadores. Com ela, é possível alinhar elementos horizontalmente ao longo de um <em>block element</em>. Combinando-a com <code>margin</code>, <code>vertical-align</code> entre outras propriedades, é possível alcançar um layout responsivo, mas não sem muito trabalho.<br>No entanto, para implementações modernas, é melhor reservar <code>float</code> para implementações pontuais e fornecer suporte a navegadores antigos.</p>
 <h2 is-upgraded>Flexbox</h2>
 <p>Flexbox é um conjunto de ferramentas mais recente que é capaz de alocar espaço e alinhar elementos unidimensionalmente, seja numa linha ou numa coluna, podendo ser combinado para construir um <em>grid</em> e rearranjar o layout.<br>Algumas vantagens do Flexbox sobre o Float:</p>
 <ul>
@@ -104,9 +117,11 @@
 <p>A começar, basta definir <code>display: flex</code>. Isso diz para o navegador usar as propriedades de flexbox.</p>
 <p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">A Complete Guide to Flexbox</a></p>
 <h2 is-upgraded>CSS Grid</h2>
-<p>Grid é um sistema bidimensional de posicionamento, alinhamento e alocação de espaço de layout. Com ele, é possível definir áreas na tela, quais elementos as ocuparão, tamanhos mínimos, máximos, espaços entre as áreas e várias outras medidas em ambas as direções (linhas e colunas). Para começar, basta definir <code>display: grid</code>. Depois disso, definimos o tamanho das linhas e colunas usando <code>grid-template-rows</code> e <code>grid-template-columns</code>. Para cada elemento da <em>grid</em>, definem-se <code>grid-row</code> e <code>grid-column</code>, que definem onde ele começa e acaba, ou quanto de espaço deve ocupar. A ordem dos elementos no arquivo não importa e pode ser alterada com <code>order</code>.<br>Também é possível definir o <em>gap</em> vertical e horizontal entre as células usango</p>
+<p>Grid é um sistema bidimensional de posicionamento, alinhamento e alocação de espaço de layout. Com ele, é possível definir áreas na tela, quais elementos as ocuparão, tamanhos mínimos, máximos, espaços entre as áreas e várias outras medidas em ambas as direções (linhas e colunas). Para começar, basta definir <code>display: grid</code>. Depois disso, definimos o tamanho das linhas e colunas usando <code>grid-template-rows</code> e <code>grid-template-columns</code>. Para cada elemento da <em>grid</em>, definem-se <code>grid-row</code> e <code>grid-column</code>, que definem onde ele começa e acaba, ou quanto de espaço deve ocupar. A ordem dos elementos no arquivo não importa e pode ser alterada com <code>order</code>.<br>Também é possível definir o <em>gap</em> vertical e horizontal entre as células usando <code>grid-gap</code>, um <em>shorthand</em> para <code>grid-row-gap</code> e <code>grid-column-gap</code>.</p>
 <p><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">A Complete Guide to Grid</a></p>
 <h2 is-upgraded>@media queries</h2>
+<p><em>Media queries</em> são uma funcionalidade de CSS que permite definir regras de <em>layout</em> a serem aplicadas de acordo com condições específicas relacionadas a onde o <em>site</em> está sendo exibido. Regras podem ser <em>breakpoints</em> de largura e altura da <em>viewport</em>, orientação da tela (<em>landscape</em>/<em>portrait</em>), se é uma tela única ou não. São muito úteis para ajustar a interface para diferentes tamanhos de tela como em celulares, tablets e tudo o que há no meio. Esse recurso é utilizado por debaixo dos panos em <em>frameworks</em> como o <em>layouts</em> do <em>AngularJS</em>.</p>
+<p><a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp" target="_blank">Responsive Web Design - Media Queries</a></p>
 
 
       </google-codelab-step>
